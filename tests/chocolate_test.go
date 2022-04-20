@@ -11,13 +11,12 @@ func TestChocolate_AddIngredient(t *testing.T) {
 	name, price, err := chocolate.AddIngredient()
 
 	if err == nil {
-		t.Errorf("When calling AddIngredient on the chocolate decorator without "+
-			"an IngredientAdder on its Ingredient field it must return an error, "+
-			"not a string with '%s'", name)
+		t.Errorf(`When calling AddIngredient on the chocolate decorator without an IngredientAdder on its 
+		Ingredient field it must return an error, not a string with "%s"`, name)
 	}
 
 	if name != "" {
-		t.Errorf("Cholocate result \"%s\" should be \"%s\"", name, "")
+		t.Errorf(`Cholocate result "%s" should be "%s"`, name, "")
 	}
 
 	if price != 0 {
@@ -34,11 +33,11 @@ func TestChocolate_AddIngredient(t *testing.T) {
 	priceExpected := 1.10
 
 	if price != float64(priceExpected) {
-		t.Errorf("Cholocate price %f should be %f", price, priceExpected)
+		t.Errorf(`Cholocate price "%f" should be "%f"`, price, priceExpected)
 	}
 
 	if !strings.Contains(name, "chocolate") {
-		t.Errorf("When calling the add ingredient of the chocolate decorator it "+
-			"must return a text with the word 'chocolate', not '%s'", name)
+		t.Errorf(`When calling the add ingredient of the chocolate decorator it must return a text with 
+		the word "chocolate", not "%s"`, name)
 	}
 }

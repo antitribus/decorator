@@ -34,11 +34,11 @@ func TestSugar_AddIngredient(t *testing.T) {
 	priceExpected := 1.00
 
 	if price != float64(priceExpected) {
-		t.Errorf("Sugar price %f should be %f", price, priceExpected)
+		t.Errorf(`Sugar price "%f" should be "%f"`, price, priceExpected)
 	}
 
 	if !strings.Contains(name, "sugar") {
-		t.Errorf("When calling the add ingredient of the sugar decorator it "+
-			"must return a text with the word 'Sugar', not '%s'", name)
+		t.Errorf(`When calling the add ingredient of the sugar decorator it 
+		must return a text with the word "sugar", not "%s"`, name)
 	}
 }
