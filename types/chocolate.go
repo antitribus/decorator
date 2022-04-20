@@ -9,7 +9,7 @@ type Chocolate struct {
 	Ingredient IngredientAdder
 }
 
-func (c *Chocolate) AddIngredient() (string, float32, error) {
+func (c *Chocolate) AddIngredient() (string, float64, error) {
 	if c.Ingredient == nil {
 		return "", 0, errors.New("An IngredientAdder is needed on the Ingredient field of the Chocolate")
 	}

@@ -9,7 +9,7 @@ type Sugar struct {
 	Ingredient IngredientAdder
 }
 
-func (o *Sugar) AddIngredient() (string, float32, error) {
+func (o *Sugar) AddIngredient() (string, float64, error) {
 	if o.Ingredient == nil {
 		return "", 0, errors.New("An IngredientAdder is needed on the Ingredient field of the Sugar")
 	}
@@ -20,7 +20,5 @@ func (o *Sugar) AddIngredient() (string, float32, error) {
 		return "", 0, err
 	}
 
-	sugarPrice := price + 0.0
-
-	return fmt.Sprintf("%s %s", name, "sugar"), sugarPrice, nil
+	return fmt.Sprintf("%s %s", name, "sugar"), price, nil
 }

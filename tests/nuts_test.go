@@ -33,7 +33,7 @@ func TestNuts_AddIngredient(t *testing.T) {
 
 	priceExpected := 1.20
 
-	if price != float32(priceExpected) {
+	if price != float64(priceExpected) {
 		t.Errorf("Nuts price %f should be %f", price, priceExpected)
 	}
 
