@@ -4,7 +4,17 @@ Esta é uma implementação do padrão de projeto decorador na linguagem Golang 
 
 Definição do padrão de projeto ["decorator"](https://refactoring.guru/pt-br/design-patterns/decorator).
 
-#### Run tests:
+#### Build Docker Image
+```sh
+docker build -t decorator .
+```
+
+#### Run Docker Image
+```sh
+docker run decorator
+```
+
+#### Run Tests:
 
 ```shell
 go test ./test -v
