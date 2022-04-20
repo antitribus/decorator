@@ -22,5 +22,5 @@ func (o *Nuts) AddIngredient() (string, float64, error) {
 
 	nutsPrice := price + 0.2
 
-	return fmt.Sprintf("%s %s", name, "nuts"), nutsPrice, nil
+	return fmt.Sprintf("%s %s,", name, "nuts"), nutsPrice, nil
 }

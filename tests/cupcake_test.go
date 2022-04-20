@@ -20,7 +20,7 @@ func TestCupcake_AddIngredient(t *testing.T) {
 		t.Errorf(`Cupcake price "%f" should be "%f"`, price, expectedPrice)
 	}
 
-	expectedText := "Cupcake with"
+	expectedText := "Cupcake with:"
 
 	if name != expectedText {
 		t.Errorf(`When calling the add ingredient of the cupcake decorator it 
@@ -42,7 +42,7 @@ func TestCupcake_FullStack(t *testing.T) {
 		t.Errorf(`Cupcake price "%f" should be "%f"`, price, expectedPrice)
 	}
 
-	expectedText := "Cupcake with chocolate nuts sugar"
+	expectedText := "Cupcake with: chocolate, nuts, sugar,"
 
 	if !strings.Contains(name, expectedText) {
 		t.Errorf(`When asking for a cupcake with chocolate, nuts and sugar the returned 

@@ -20,5 +20,5 @@ func (o *Sugar) AddIngredient() (string, float64, error) {
 		return "", 0, err
 	}
 
-	return fmt.Sprintf("%s %s", name, "sugar"), price, nil
+	return fmt.Sprintf("%s %s,", name, "sugar"), price, nil
 }

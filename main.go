@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Preparando alguns cupcakes 🧁...")
+	fmt.Println("Preparing some cupcakes 🧁...")
 
 	cupcakes := []types.IngredientAdder{
 		&types.Chocolate{&types.Cupcake{}},
@@ -19,6 +19,6 @@ func main() {
 
 	for _, cupcake := range cupcakes {
 		description, price, _ := cupcake.AddIngredient()
-		fmt.Printf("%s no valor de R$%.2f\n", description, price)
+		fmt.Printf("%s costing $%.2f\n", description, price)
 	}
 }
