@@ -18,7 +18,9 @@ func main() {
 	}
 
 	for _, cupcake := range cupcakes {
-		description, price, _ := cupcake.AddIngredient()
+		description, _ := cupcake.AddIngredient()
+		price, _ := cupcake.GetPrice()
+
 		fmt.Printf("%s costing $%.2f\n", description, price)
 	}
 }

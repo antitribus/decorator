@@ -1,5 +1,7 @@
 package types
 
 type IngredientAdder interface {
-	AddIngredient() (string, float64, error)
+	AddIngredient() (string, error)
+	GetPrice() (float64, error)
+	Validate() error
 }

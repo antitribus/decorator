@@ -9,18 +9,35 @@ type Nuts struct {
 	Ingredient IngredientAdder
 }
 
-func (o *Nuts) AddIngredient() (string, float64, error) {
-	if o.Ingredient == nil {
-		return "", 0, errors.New("An IngredientAdder is needed on the Ingredient field of the Nuts")
+func (n *Nuts) AddIngredient() (string, error) {
+	if n.Ingredient == nil {
+		return "", errors.New("An IngredientAdder is needed on the Ingredient field of the Nuts")
 	}
 
-	name, price, err := o.Ingredient.AddIngredient()
+	name, err := n.Ingredient.AddIngredient()
 
 	if err != nil {
-		return "", 0, err
+		return "", err
 	}
 
-	nutsPrice := price + 0.2
+	return fmt.Sprintf("%s %s,", name, "nuts"), nil
+}
 
-	return fmt.Sprintf("%s %s,", name, "nuts"), nutsPrice, nil
+func (n *Nuts) GetPrice() (float64, error) {
+	err := n.Validate()
+
+	if err != nil {
+		return 0, err
+	}
+
+	price, err := n.Ingredient.GetPrice()
+	return price + 0.2, err
+}
+
+func (n *Nuts) Validate() error {
+	if n.Ingredient == nil {
+		return errors.New("An IngredientAdder is needed on the Ingredient field of the Nuts")
+	}
+
+	return nil
 }

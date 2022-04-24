@@ -9,18 +9,35 @@ type Chocolate struct {
 	Ingredient IngredientAdder
 }
 
-func (c *Chocolate) AddIngredient() (string, float64, error) {
+func (c *Chocolate) AddIngredient() (string, error) {
 	if c.Ingredient == nil {
-		return "", 0, errors.New("An IngredientAdder is needed on the Ingredient field of the Chocolate")
+		return "", errors.New("An IngredientAdder is needed on the Ingredient field of the Chocolate")
 	}
 
-	name, price, err := c.Ingredient.AddIngredient()
+	name, err := c.Ingredient.AddIngredient()
 
 	if err != nil {
-		return "", 0, err
+		return "", err
 	}
 
-	chocoPrice := price + 0.1
+	return fmt.Sprintf("%s %s,", name, "chocolate"), nil
+}
 
-	return fmt.Sprintf("%s %s,", name, "chocolate"), chocoPrice, nil
+func (c *Chocolate) GetPrice() (float64, error) {
+	err := c.Validate()
+
+	if err != nil {
+		return 0, err
+	}
+
+	price, err := c.Ingredient.GetPrice()
+	return price + 0.1, err
+}
+
+func (c *Chocolate) Validate() error {
+	if c.Ingredient == nil {
+		return errors.New("An IngredientAdder is needed on the Ingredient field of the Chocolate")
+	}
+
+	return nil
 }
